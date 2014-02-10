@@ -1,0 +1,4 @@
+gote
+====
+
+ctemplate for go
