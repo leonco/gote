@@ -1,7 +1,7 @@
 gote
 ====
 
-ctemplate for go
+gote is a simple but powerful text templating library for go.  The syntax is similar to Google's ctemplate library, and emphasizes the separation of logic from presentation.
 
 features
 ==========
