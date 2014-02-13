@@ -12,8 +12,8 @@ import (
 // This supports both {{PLAIN}} variables as well as one with {{MODIFERS:j}}.
 //
 type VariableNode struct {
-	variable  string
-	flags []Flag
+	variable string
+	flags    []Flag
 }
 
 func parseVNode(spec string) VariableNode {
@@ -24,7 +24,8 @@ func parseVNode(spec string) VariableNode {
 func (vnode VariableNode) Evaluate(dict *TemplateDictionary, context *TemplateLoaderContext, w io.Writer) error {
 	t, ok := dict.Get(vnode.variable)
 	if ok {
-		w.Write([]byte(t))
+		b := applyModifiers([]byte(t), vnode.flags)
+		w.Write(b)
 	}
 	return nil
 }
