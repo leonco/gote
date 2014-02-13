@@ -61,7 +61,6 @@ func (t *CTemplateParser) Parse(input []byte) (ns []TemplateNode, err error) {
 
 func handleTextNode(input []byte, nodes []TemplateNode) (r []byte, ns []TemplateNode) {
 	nextBraces := bytes.Index(input, []byte("{{"))
-	log.Printf("handle TextNode, end at %d", nextBraces)
 	var text []byte
 	if nextBraces < 0 {
 		text = input

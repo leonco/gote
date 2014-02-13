@@ -11,6 +11,11 @@ type TemplateDictionary struct {
 	parent        *TemplateDictionary
 }
 
+func NewTemplateDictionary() *TemplateDictionary {
+	dict := make(map[string]string)
+	return &TemplateDictionary{dict: dict}
+}
+
 func (td *TemplateDictionary) Put(key, val string) {
 	key = strings.ToUpper(key)
 	_, ok := td.dict[key]
@@ -20,6 +25,7 @@ func (td *TemplateDictionary) Put(key, val string) {
 }
 
 func (td *TemplateDictionary) Get(key string) (val string, ok bool) {
+	key = strings.ToUpper(key)
 	val, ok = td.dict[key]
 	return
 }
