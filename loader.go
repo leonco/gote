@@ -51,7 +51,7 @@ func (cache *TemplateCache) GetTemplate(filename string) (*Template, error) {
 		return nil, err
 	}
 
-	results, err := ParseTemplate(cache.parser, contents)
+	results, err := parseTemplate(cache.parser, contents)
 
 	if err != nil {
 		return nil, err
